@@ -55,6 +55,32 @@ function addStudent(student) {
 //   $("#app").html(studentString);
 // }
 
+function getStudents() {
+  $("#app").empty();
+  let allStudents = JSON.parse(localStorage.getItem("students"));
+
+  if (allStudents.length === 0) {
+    $("#app").html("<p>No students found.</p>");
+    return;
+  }
+
+  let studentHTML = "<div>";
+  $.each(allStudents, (index, student) => {
+    studentHTML += `
+      <div style="border:1px solid #ccc; padding:25px 65px; margin:8px 0;">
+        <strong>${student.fName} ${student.lName}</strong><br>
+        Age: ${student.sAge}<br>
+        Phone: ${student.pNum}<br>
+        Email: ${student.sEmail}<br>
+        Classes: ${student.classes.join(", ")}
+      </div>
+    `;
+  });
+  studentHTML += "</div>";
+
+  $("#app").html(studentHTML);
+}
+
 function connectToStorage() {
   if (localStorage) {
     let students = localStorage.getItem("students");
@@ -72,16 +98,4 @@ function connectToStorage() {
 $(document).ready(function () {
   connectToStorage();
   initListeners();
-});
-let studentHTML = "<div>";
-$.each(allStudents, (index, student) => {
-  studentHTML += `
-      <div style="border:1px solid #ccc; padding:8px; margin:8px 0;">
-        <strong>${student.fName} ${student.lName}</strong><br>
-        Age: ${student.age}<br>
-        Phone: ${student.phone}<br>
-        Email: ${student.email}<br>
-        Classes: ${student.classes.join(", ")}
-      </div>
-    `;
 });
