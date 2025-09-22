@@ -8,7 +8,31 @@
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
+    <label for="firstName"></label>
+    <input type="text" placeholder="first name" id="firstName" />
+    <label for="lastName"></label>
+    <input type="text" placeholder="last name" id="lastName" />
+
+    <label for="stuAge"></label>
+    <input type="number" placeholder="student age" id="stuAge" />
+    <label for="phoneNum"></label>
+    <input type="text" placeholder="phone number" id="phoneNum" />
+    <label for="stuEmail"></label>
+    <input type="email" placeholder="email" id="stuEmail" />
+
+    <label for="classes">Classes</label>
+    <input
+      type="text"
+      id="classes"
+      placeholder="add a class separated by commas"
+    />
+
+    <input type="submit" id="submit" value="Add Student" />
+    <div>
+      <button id="showLocal">Show All Students</button>
+    </div>
+    <div id="app"></div>
     <script src="/app/app.js"></script>
-    <script src=""></script>
+    <script src="/lib/jquery-3.7.1.min.js"></script>
   </body>
 </html>
